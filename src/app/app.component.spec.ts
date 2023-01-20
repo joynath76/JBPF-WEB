@@ -20,16 +20,16 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it(`should have as title 'jbworkspace-web'`, () => {
+  it(`should have as title 'jbpf-web'`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
-    expect(app.title).toEqual('jbworkspace-web');
+    expect(app.title).toEqual('jbpf-web');
   });
 
   it('should render title', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('.content span')?.textContent).toContain('jbworkspace-web app is running!');
+    expect(compiled.querySelector('.content span')?.textContent).toContain('jbpf-web app is running!');
   });
 });
