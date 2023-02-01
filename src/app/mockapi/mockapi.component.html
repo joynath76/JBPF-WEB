@@ -1,0 +1,39 @@
+<div *ngIf="mockApi" style="display: flex;flex-direction: column;width: 75%; height: 100vh;gap: 15px;padding: 15px; margin: auto;">
+    <table *ngIf="mockApi">
+        <tr>
+            <th style="width: 25%;">
+                <label for="method">Request Method</label>
+            </th>
+            <th style="width: 25%;">
+                <label for="url">Request URL</label>
+            </th>
+            <th style="width: 25%;">
+                <label for="contenttype">Content Type</label>
+            </th>
+            <th style="width: 25%;">
+                <label for="code">Response Code</label>
+            </th>
+        </tr>
+        <tr>
+            <td>
+                <p-dropdown appendTo="body" [options]="methods" [(ngModel)]="mockApi.requestMethod" (onChange)="onContentTypeChange($event)"></p-dropdown>
+            </td>
+            <td>
+                <input type="text" name="url" id="url" pInputText [(ngModel)]="mockApi.requestURL">
+            </td>
+            <td>
+                <p-dropdown appendTo="body" [options]="contentTypes" [(ngModel)]="mockApi.contentType" (onChange)="onContentTypeChange($event)"></p-dropdown>
+            </td>
+            <td>
+                <input type="number" name="code" id="code" pInputText [(ngModel)]="mockApi.responseCode">
+            </td>
+        </tr>
+    </table>
+    <label style="font-weight: bold;" for="requestbody">Response Body</label>
+    <ngx-monaco-editor name="requestbody" style="height: 100%;width: 100%; min-width: 50vw;" [options]="editorOptions" [(ngModel)]="mockApi.responseBody"></ngx-monaco-editor>
+    
+    <div style="display: flex;justify-content: flex-end; gap: 10px;">
+        <button type="button" pButton pRipple label="Cancel" (click)="onCancel()"></button>
+        <button type="button" pButton pRipple label="Submit" (click)="onSubmit()"></button>
+    </div>
+</div>
